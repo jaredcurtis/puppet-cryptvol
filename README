@@ -1,16 +1,18 @@
 cryptvol
 
-This is the cryptvol module.
+Example
 
-License
--------
+node secretdata {
+  include cryptvol
+  cryptvol { 'unlock secret data':
+    device => '/dev/sdb1',
+    mapper => 'secretfs',
+    key    => 'topsecretkey'
+  }
 
-
-Contact
--------
-
-
-Support
--------
-
-Please log tickets and issues at our [Projects site](http://projects.example.com)
+  cryptvol { 'unlock even MORE secret data':
+    device => '/dev/loop0',
+    mapper => 'extrasecretfs',
+    key    => '/root/key'
+  }
+}
