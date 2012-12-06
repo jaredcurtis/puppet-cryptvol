@@ -11,3 +11,27 @@ describe Puppet::Type.type(:cryptvol) do
     Puppet::Type.type(:cryptvol).key_attributes.should == [:device]
   end
 end
+
+describe Puppet::Type.type(:cryptvol), "when validating attributes" do
+  [:device, :mapper, :key ].each do |param|
+    it "should have a #{param} parameter" do
+      Puppet::Type.type(:cryptvol).attrtype(param).should == :param
+    end
+  end
+
+  [:ensure].each do |param|
+    it "should have a #{param} property" do
+      Puppet::Type.type(:cryptvol).attrtype(param).should == :property
+    end
+  end
+end
+
+describe Puppet::Type.type(:cryptvol), "when validating values" do
+  it "should support :present as a value to :ensure" do
+    Puppet::Type.type(:mount).new(:name => "secretfs", :ensure => :present)
+  end
+
+  it "should support :absent as a value to :ensure" do
+    Puppet::Type.type(:mount).new(:name => "secretfs", :ensure => :absent)
+  end
+end
