@@ -10,7 +10,7 @@ Puppet::Type.newtype(:cryptvol) do
 
   newparam(:mapper) do
     desc "Device mapper name"
-    newvalues(/^\S+$/)
+    newvalues(/^\w+$/)
   end
 
   newparam(:key) do
