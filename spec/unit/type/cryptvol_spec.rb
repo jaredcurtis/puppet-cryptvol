@@ -44,7 +44,7 @@ describe Puppet::Type.type(:cryptvol), "when validating values" do
   end
 
   it "should error when /dev/invalid is used as a value to :mapper" do
-      expect { Puppet::Type.type(:cryptvol).new(:name => "secretfs", :mapper => "/dev/invalid") }.should raise_error(Puppet::Error)
+      expect { Puppet::Type.type(:cryptvol).new(:name => "secretfs", :mapper => "/dev/invalid") }.to raise_error(Puppet::Error)
       #Puppet::Type.type(:cryptvol).new(:name => "secretfs", :mapper => "/dev/invalid")
   end
 
