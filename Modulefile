@@ -1,5 +1,5 @@
 name    'puppet-cryptvol'
-version '0.0.1'
+version '0.0.2'
 source 'https://github.com/jaredcurtis/puppet-cryptvol'
 author 'Jared Curtis'
 license 'Apache License, Version 2.0'
